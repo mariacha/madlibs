@@ -1,0 +1,3 @@
+name = Madlibs
+description = A simple Madlib generator
+core = 7.x
