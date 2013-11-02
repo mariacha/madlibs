@@ -54,6 +54,8 @@
       // Hide the mad lib container.
       jMadLibsContainer.hide();
 
+      $('#funny-picture').hide();
+
       // Add the mad libs form after the mad libs container.
       jMadLibsContainer.after(
         jMadLibsForm
@@ -129,6 +131,8 @@
 				jMadLibsContainer.show();
 
 			}
+
+      $('#funny-picture').show();
 		}
     };
 

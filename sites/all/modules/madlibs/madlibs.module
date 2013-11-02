@@ -71,6 +71,7 @@ function madlibs_block_view($delta = ''){
       '#path' => drupal_get_path('module', 'madlibs') .'/images/original-seal.jpg',
       '#height' => 168,
       '#width' => 164,
+      '#attributes' => array('id' => 'funny-picture'),
     );
   }
 
