@@ -3,3 +3,24 @@
  * @file
  * Drupal needs this blank file.
  */
+
+/**
+ * Implements hook_menu().
+ *
+ * Adds a page that displays some text.
+ */
+function madlibs_menu() {
+   $items['madlib'] = array(
+      'title' => "Madlib viewer",
+      'page callback' => 'madlib_viewer',
+      'access callback' => TRUE,
+    );
+    return $items;
+}
+
+/**
+ * Page callback to show a madlib form and results.
+ */
+function madlib_viewer() {
+  return "Madlibs coming soon!";
+}
