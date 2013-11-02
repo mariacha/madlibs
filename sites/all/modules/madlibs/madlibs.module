@@ -25,21 +25,7 @@ function madlib_viewer() {
 
   drupal_add_js(drupal_get_path('module', 'madlibs') .'/js/madlibs_maker.js', 'file');
 
-  $text = <<< EOD
-   <div id="madlibs">
-
-    <p>
-      Come for the software, stay for the community <br />
-      Drupal is an open source content management <span rel="madlib" type="noun" desc="Thing you stand on">platform</span>
-      powering millions of <span rel="madlib" type="noun" desc="Things found on the internet">websites</span>
-      and <span rel="madlib" type="noun" desc="Plural noun">applications</span>.
-      It’s built, <span rel="madlib" type="verb" desc="A verb, past-tense">used</span>,
-      and supported by a(n) <span rel="madlib" type="adjective" desc="Adjective">active</span>
-      and <span rel="madlib" type="adjective" desc="Adjective">diverse</span> community of
-      <span rel="madlib" type="noun" desc="A kind of animal, plural">people</span> around the world.
-    </p>
-  </div>
-EOD;
+  $text = theme('madlib');
 
   return $text;
 }
@@ -76,4 +62,20 @@ function madlibs_block_view($delta = ''){
   }
 
   return $block;
+}
+
+/**
+ * Implememnts hook_theme($existing, $type, $theme, $path)
+ *
+ * Declares a template for our madlib page.
+ */
+function madlibs_theme($existing, $type, $theme, $path) {
+  $themes = array (
+    'madlib' => array(
+      'path' => drupal_get_path('module', 'madlibs') .'/templates',
+      'template' => 'madlib',
+    ),
+  );
+
+  return $themes;
 }
