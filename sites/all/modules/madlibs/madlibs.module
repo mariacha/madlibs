@@ -43,3 +43,36 @@ EOD;
 
   return $text;
 }
+
+/**
+ * Implements hook_block_info().
+ *
+ * Adds a block to show a silly picture when the madlib is completed.
+ */
+function madlibs_block_info() {
+  $blocks['madlib_picture'] = array(
+    'info' => t('Madlib silly picture'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * Tells Drupal how to display the block declared above.
+ */
+function madlibs_block_view($delta = ''){
+  $block = array();
+
+  if ($delta == 'madlib_picture') {
+    $block['content'] = array(
+      '#theme' => 'image',
+      '#path' => drupal_get_path('module', 'madlibs') .'/images/original-seal.jpg',
+      '#height' => 168,
+      '#width' => 164,
+    );
+  }
+
+  return $block;
+}
